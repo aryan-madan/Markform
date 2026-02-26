@@ -1,0 +1,21 @@
+{
+  "name": "markform",
+  "version": "1.0.0",
+  "description": "Turn any folder of Markdown files into a beautiful, searchable static site.",
+  "main": "src/index.js",
+  "bin": {
+    "markform": "src/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["markdown", "static-site", "cli", "docs"],
+  "author": "Aryan Madan",
+  "license": "ISC",
+  "dependencies": {
+    "chokidar": "^5.0.0",
+    "commander": "^14.0.3",
+    "fs-extra": "^11.3.3",
+    "marked": "^17.0.3"
+  }
+}
