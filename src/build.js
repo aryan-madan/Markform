@@ -104,7 +104,15 @@ function getMdFiles(dir) {
 
 async function buildSearchIndex(mdFiles, inputDir, outputDir) {
   const index = mdFiles.map((filePath) => {
-    const content = fs.readFileSync(filePath, 'utf-8');
+    const raw = fs.readFileSync(filePath, 'utf-8');
+    const content = raw
+      .replace(/#{1,6}\s/g, '')        // headings
+      .replace(/\*\*|__|\*|_/g, '')    // bold/italic
+      .replace(/`{1,3}[^`]*`{1,3}/g, '') // code
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // links
+      .replace(/^\s*[-*+]\s/gm, '')    // list items
+      .replace(/\n+/g, ' ')            // newlines
+      .trim();
     const relativePath = path.relative(inputDir, filePath);
     const href = relativePath.replace(/\.md$/, '.html');
     const title = path.basename(filePath, '.md').replace(/-/g, ' ');

@@ -230,16 +230,33 @@
             .then(data => {
                 fuse = new Fuse(data, {
                     keys: ['title', 'content'],
-                    threshold: 0.4,
+                    threshold: 0.1,
+                    includeScore: true,
+                    ignoreLocation: true,
+                    minMatchCharLength: 3,
                 });
             });
+
+        function highlight(text, query) {
+            if (!query) return text;
+            const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+            return text.replace(regex, '<mark style="background:#f9e2af;color:#1e1e2e;border-radius:3px;padding:0 2px;">$1</mark>');
+        }
+
+        function getSnippet(content, query) {
+            const idx = content.toLowerCase().indexOf(query.toLowerCase());
+            if (idx === -1) return content.slice(0, 100) + '...';
+            const start = Math.max(0, idx - 40);
+            const end = Math.min(content.length, idx + 80);
+            return (start > 0 ? '...' : '') + content.slice(start, end) + (end < content.length ? '...' : '');
+        }
 
         document.getElementById('search').addEventListener('input', function () {
             const query = this.value.trim();
             const navList = document.getElementById('nav-list');
             const results = document.getElementById('search-results');
 
-            if (!query || !fuse) {
+            if (!query || !fuse || query.length < 2) {
                 navList.style.display = '';
                 results.style.display = 'none';
                 results.innerHTML = '';
@@ -250,13 +267,17 @@
             navList.style.display = 'none';
             results.style.display = '';
             results.innerHTML = matches.length
-                ? matches.map(m =>
-                    `<li style="margin-bottom:0.6rem">
-              <a href="/${m.item.href}" style="color:#a6adc8;text-decoration:none;font-size:0.95rem;text-transform:capitalize;">
-                ${m.item.title}
-              </a>
-            </li>`
-                ).join('')
+                ? matches.map(m => {
+                    const snippet = getSnippet(m.item.content, query);
+                    return `<li style="margin-bottom:1rem">
+            <a href="/${m.item.href}" style="color:#cdd6f4;text-decoration:none;font-size:0.95rem;text-transform:capitalize;font-weight:600;">
+              ${highlight(m.item.title, query)}
+            </a>
+            <p style="color:#6c7086;font-size:0.8rem;margin-top:0.25rem;line-height:1.4;">
+              ${highlight(snippet, query)}
+            </p>
+          </li>`;
+                }).join('')
                 : `<li style="color:#6c7086;font-size:0.9rem">No results found.</li>`;
         });
     </script>
