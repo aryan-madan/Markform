@@ -9,6 +9,7 @@ program
     .version('1.0.0')
     .argument('<input>', 'folder of Markdown files')
     .option('-o, --output <dir>', 'output directory', './output')
+    .option('-w, --watch', 'watch for changes and rebuild')
     .action((input, options) => {
         buildSite(input, options);
     });
