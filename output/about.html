@@ -1,166 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>about</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>about</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      display: flex;
-      min-height: 100vh;
-      background: #f9f9f9;
-      color: #1a1a1a;
-    }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            display: flex;
+            min-height: 100vh;
+            background: #f9f9f9;
+            color: #1a1a1a;
+        }
 
-    nav {
-      width: 240px;
-      min-height: 100vh;
-      background: #1e1e2e;
-      padding: 2rem 1.5rem;
-      position: sticky;
-      top: 0;
-    }
+        nav {
+            width: 240px;
+            min-height: 100vh;
+            background: #1e1e2e;
+            padding: 2rem 1.5rem;
+            position: sticky;
+            top: 0;
+        }
 
-    nav h2 {
-      color: #cdd6f4;
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 1rem;
-    }
+        nav h2 {
+            color: #cdd6f4;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
 
-    #search {
-      width: 100%;
-      padding: 0.5rem 0.75rem;
-      margin-bottom: 1.25rem;
-      border-radius: 6px;
-      border: none;
-      background: #313244;
-      color: #cdd6f4;
-      font-size: 0.9rem;
-      outline: none;
-    }
+        #search {
+            width: 100%;
+            padding: 0.5rem 0.75rem;
+            margin-bottom: 1.25rem;
+            border-radius: 6px;
+            border: none;
+            background: #313244;
+            color: #cdd6f4;
+            font-size: 0.9rem;
+            outline: none;
+        }
 
-    #search::placeholder { color: #6c7086; }
+        #search::placeholder {
+            color: #6c7086;
+        }
 
-    nav ul { list-style: none; }
-    nav ul li { margin-bottom: 0.6rem; }
-    nav ul li a {
-      color: #a6adc8;
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: color 0.2s;
-      text-transform: capitalize;
-    }
-    nav ul li a:hover { color: #cdd6f4; }
+        nav ul {
+            list-style: none;
+        }
 
-    main {
-      flex: 1;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 3rem 2rem;
-    }
+        nav ul li {
+            margin-bottom: 0.6rem;
+        }
 
-    h1, h2, h3 { margin: 1.5rem 0 0.75rem; line-height: 1.3; }
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.5rem; }
-    h3 { font-size: 1.2rem; }
+        nav ul li a {
+            color: #a6adc8;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            text-transform: capitalize;
+        }
 
-    p { line-height: 1.75; margin-bottom: 1rem; color: #333; }
+        nav ul li a:hover {
+            color: #cdd6f4;
+        }
 
-    code {
-      background: #ececec;
-      padding: 0.2em 0.4em;
-      border-radius: 4px;
-      font-size: 0.9em;
-      font-family: 'Fira Code', monospace;
-    }
+        main {
+            flex: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
 
-    pre {
-      background: #1e1e2e;
-      color: #cdd6f4;
-      padding: 1.25rem;
-      border-radius: 8px;
-      overflow-x: auto;
-      margin-bottom: 1.25rem;
-    }
+        h1,
+        h2,
+        h3 {
+            margin: 1.5rem 0 0.75rem;
+            line-height: 1.3;
+        }
 
-    pre code { background: none; color: inherit; padding: 0; }
+        h1 {
+            font-size: 2rem;
+        }
 
-    blockquote {
-      border-left: 4px solid #cdd6f4;
-      padding-left: 1rem;
-      color: #666;
-      margin: 1rem 0;
-      font-style: italic;
-    }
+        h2 {
+            font-size: 1.5rem;
+        }
 
-    a { color: #7287fd; }
-    a:hover { text-decoration: underline; }
+        h3 {
+            font-size: 1.2rem;
+        }
 
-    img { max-width: 100%; border-radius: 6px; margin: 1rem 0; }
+        p {
+            line-height: 1.75;
+            margin-bottom: 1rem;
+            color: #333;
+        }
 
-    table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; }
-    th, td { padding: 0.6rem 1rem; border: 1px solid #ddd; text-align: left; }
-    th { background: #f0f0f0; }
-  </style>
+        code {
+            background: #ececec;
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'Fira Code', monospace;
+        }
+
+        pre {
+            background: #1e1e2e;
+            color: #cdd6f4;
+            padding: 1.25rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 1.25rem;
+        }
+
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #cdd6f4;
+            padding-left: 1rem;
+            color: #666;
+            margin: 1rem 0;
+            font-style: italic;
+        }
+
+        a {
+            color: #7287fd;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 6px;
+            margin: 1rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+
+        th,
+        td {
+            padding: 0.6rem 1rem;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #f0f0f0;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            padding: 1.25rem;
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .card-folder {
+            font-size: 0.75rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.4rem;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            text-transform: capitalize;
+        }
+    </style>
 </head>
+
 <body>
-  <nav>
-    <h2>markform</h2>
-    <input id="search" type="text" placeholder="Search..." />
-    <ul id="nav-list"><ul><li><a href="about.html">about</a></li>
+    <nav>
+        <h2>markform</h2>
+        <input id="search" type="text" placeholder="Search..." />
+        <ul id="nav-list"><ul><li><a href="about.html">about</a></li>
 <li><a href="hello.html">hello</a></li></ul></ul>
-    <ul id="search-results" style="list-style:none; display:none;"></ul>
-  </nav>
-  <main>
-    <h1>About</h1>
+        <ul id="search-results" style="list-style:none; display:none;"></ul>
+    </nav>
+    <main>
+        <h1>About</h1>
 <p>This site was built with markform.</p>
 
-  </main>
+    </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/fuse.js@7/dist/fuse.min.js"></script>
-  <script>
-    let fuse;
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@7/dist/fuse.min.js"></script>
+    <script>
+        let fuse;
 
-    fetch('/search-index.json')
-      .then(r => r.json())
-      .then(data => {
-        fuse = new Fuse(data, {
-          keys: ['title', 'content'],
-          threshold: 0.4,
-        });
-      });
+        fetch('/search-index.json')
+            .then(r => r.json())
+            .then(data => {
+                fuse = new Fuse(data, {
+                    keys: ['title', 'content'],
+                    threshold: 0.4,
+                });
+            });
 
-    document.getElementById('search').addEventListener('input', function () {
-      const query = this.value.trim();
-      const navList = document.getElementById('nav-list');
-      const results = document.getElementById('search-results');
+        document.getElementById('search').addEventListener('input', function () {
+            const query = this.value.trim();
+            const navList = document.getElementById('nav-list');
+            const results = document.getElementById('search-results');
 
-      if (!query || !fuse) {
-        navList.style.display = '';
-        results.style.display = 'none';
-        results.innerHTML = '';
-        return;
-      }
+            if (!query || !fuse) {
+                navList.style.display = '';
+                results.style.display = 'none';
+                results.innerHTML = '';
+                return;
+            }
 
-      const matches = fuse.search(query).slice(0, 8);
-      navList.style.display = 'none';
-      results.style.display = '';
-      results.innerHTML = matches.length
-        ? matches.map(m =>
-            `<li style="margin-bottom:0.6rem">
+            const matches = fuse.search(query).slice(0, 8);
+            navList.style.display = 'none';
+            results.style.display = '';
+            results.innerHTML = matches.length
+                ? matches.map(m =>
+                    `<li style="margin-bottom:0.6rem">
               <a href="/${m.item.href}" style="color:#a6adc8;text-decoration:none;font-size:0.95rem;text-transform:capitalize;">
                 ${m.item.title}
               </a>
             </li>`
-          ).join('')
-        : `<li style="color:#6c7086;font-size:0.9rem">No results found.</li>`;
-    });
-  </script>
+                ).join('')
+                : `<li style="color:#6c7086;font-size:0.9rem">No results found.</li>`;
+        });
+    </script>
 
   <script>
     setInterval(() => {
@@ -170,4 +269,5 @@
     }, 1000);
   </script>
 </body>
+
 </html>

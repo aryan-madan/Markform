@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>hello</title>
+    <title>Home</title>
     <style>
         * {
             box-sizing: border-box;
@@ -211,14 +211,23 @@
     <nav>
         <h2>markform</h2>
         <input id="search" type="text" placeholder="Search..." />
-        <ul id="nav-list"><ul><li><a href="about.html">about</a></li>
-<li><a href="hello.html">hello</a></li></ul></ul>
+        <ul id="nav-list"></ul>
         <ul id="search-results" style="list-style:none; display:none;"></ul>
     </nav>
     <main>
-        <h1>Hello World</h1>
-<p>This is my first note.</p>
+        
+      <h1>All Pages</h1>
+      <div class="card-grid">
+      <a href="/about.html" class="card">
+        <span class="card-folder">root</span>
+        <span class="card-title">about</span>
+      </a>
 
+      <a href="/hello.html" class="card">
+        <span class="card-folder">root</span>
+        <span class="card-title">hello</span>
+      </a></div>
+    
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/fuse.js@7/dist/fuse.min.js"></script>
@@ -260,14 +269,6 @@
                 : `<li style="color:#6c7086;font-size:0.9rem">No results found.</li>`;
         });
     </script>
-
-  <script>
-    setInterval(() => {
-      fetch('/__reload')
-        .then(r => r.json())
-        .then(data => { if (data.reload) location.reload(); });
-    }, 1000);
-  </script>
 </body>
 
 </html>

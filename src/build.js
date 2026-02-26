@@ -4,6 +4,7 @@ const { marked } = require('marked');
 const { buildNav } = require('./nav');
 const chokidar = require('chokidar');
 const express = require('express');
+const { buildIndexPage } = require('./index-page');
 
 async function buildSite(input, options) {
   const inputDir = path.resolve(input);
@@ -31,7 +32,7 @@ async function buildSite(input, options) {
     app.listen(3000, () => {
       const mdFiles = getMdFiles(inputDir);
       const firstHref = path.relative(inputDir, mdFiles[0]).replace(/\.md$/, '.html');
-      console.log(`(°ㅁ°) Serving at http://localhost:3000/${firstHref}`);
+      console.log(`(°ㅁ°) Serving at http://localhost:3000/index.html`);
     });
 
     chokidar.watch(inputDir).on('change', async (filePath) => {
@@ -78,6 +79,9 @@ async function compile(inputDir, outputDir, watch = false) {
   </script>
 </body>`);
     }
+
+    const indexHtml = buildIndexPage(mdFiles, inputDir, template);
+    await fs.writeFile(path.join(outputDir, 'index.html'), indexHtml);
 
     await fs.ensureDir(path.dirname(outputPath));
     await fs.writeFile(outputPath, html);
