@@ -8,7 +8,7 @@ async function buildSite(input, options) {
     const inputDir = path.resolve(input);
     const outputDir = path.resolve(options.output);
 
-    if(!fs.existsSync(inputDir)) {
+    if (!fs.existsSync(inputDir)) {
         console.error(`(˙◠˙ ) Input folder not found: ${inputDir}`);
         process.exit(1);
     }
@@ -34,6 +34,8 @@ async function compile(inputDir, outputDir) {
     const template = fs.readFileSync(
         path.join(__dirname, '../themes/default.html'), 'utf-8'
     );
+
+    await buildSearchIndex(mdFiles, inputDir, outputDir);
 
     for (const filePath of mdFiles) {
         const content = fs.readFileSync(filePath, 'utf-8');
@@ -63,6 +65,21 @@ function getMdFiles(dir) {
         }
     }
     return results;
+}
+
+async function buildSearchIndex(mdFiles, inputDir, outputDir) {
+    const index = mdFiles.map((filePath) => {
+        const content = fs.readFileSync(filePath, 'utf-8');
+        const relativePath = path.relative(inputDir, filePath);
+        const href = relativePath.replace(/\.md$/, '.html');
+        const title = path.basename(filePath, '.md').replace(/-/g, ' ');
+        return { title, href, content };
+    });
+
+    await fs.writeFile(
+        path.join(outputDir, 'search-index.json'),
+        JSON.stringify(index, null, 2)
+    );
 }
 
 module.exports = { buildSite };

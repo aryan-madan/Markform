@@ -1,0 +1,12 @@
+[
+  {
+    "title": "about",
+    "href": "about.html",
+    "content": "# About\n\nThis site was built with markform.\n"
+  },
+  {
+    "title": "hello",
+    "href": "hello.html",
+    "content": "# Hello World\n\nThis is my first note.\n"
+  }
+]
