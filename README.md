@@ -1,4 +1,4 @@
-![Markdown Banner](https://github.com/aryan-madan/Markform/blob/main/images/Markform%20%7C%20Banner.png?raw=true)
+![Markdown Banner](https://github.com/aryan-madan/Markform/blob/main/images/Markform%20|%20Devlog%202%20.png)
 
 Turn any folder of Markdown files into a beautiful, searchable static site — in one command.
 ```bash
@@ -6,6 +6,13 @@ markform ./my-notes -o ./output
 ```
 
 I saw on reddit that people had folders of markdown files that needed to be sorted, and no good way to share them. Most static site generators are either too complex or too opinionated. So I built this :D
+
+---
+
+## ⛏ Installation
+```bash
+npm install -g markform-cli
+```
 
 ---
 
@@ -22,7 +29,6 @@ markform ./my-notes -o ./output --watch
 ```
 
 ---
-
 
 ## (≖_≖ ) Options
 
