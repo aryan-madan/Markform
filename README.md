@@ -23,6 +23,11 @@ npm install -g markform-cli
 markform ./my-notes -o ./output
 ```
 
+If it doesn't work (mainly on windows), use:
+```bash
+npx markform-cli ./test -o ./output
+```
+
 **Watch mode** — auto-rebuilds and live-reloads the browser on file changes:
 ```bash
 markform ./my-notes -o ./output --watch

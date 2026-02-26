@@ -1,10 +1,10 @@
 {
   "name": "markform-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Turn any folder of Markdown files into a beautiful, searchable static site.",
   "main": "src/index.js",
   "bin": {
-    "markform": "src/index.js"
+    "markform": "./src/index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
