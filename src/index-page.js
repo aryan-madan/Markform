@@ -1,6 +1,6 @@
 const path = require('path');
 
-function buildIndexPage(mdFiles, inputDir, template) {
+function buildIndexPage(mdFiles, inputDir, template, searchIndexJson) {
   const cards = mdFiles.map((filePath) => {
     const relativePath = path.relative(inputDir, filePath);
     const href = relativePath.replace(/\.md$/, '.html');
@@ -8,19 +8,25 @@ function buildIndexPage(mdFiles, inputDir, template) {
     const folder = path.dirname(relativePath) === '.' ? 'root' : path.dirname(relativePath);
 
     return `
-      <a href="/${href}" class="card">
+      <a href="${href}" class="card">
         <span class="card-folder">${folder}</span>
         <span class="card-title">${title}</span>
       </a>`;
   }).join('\n');
 
+  const content = `
+    <div class="index-header">
+      <h1>markform</h1>
+      <p>${mdFiles.length} page${mdFiles.length !== 1 ? 's' : ''}</p>
+    </div>
+    <div class="card-grid">${cards}</div>
+  `;
+
   return template
-    .replace('{{content}}', `
-      <h1>All Pages</h1>
-      <div class="card-grid">${cards}</div>
-    `)
+    .replace('{{content}}', content)
     .replace('{{nav}}', '')
-    .replace('{{title}}', 'Home');
+    .replace('{{title}}', 'Home')
+    .replace('{{search_index}}', searchIndexJson);
 }
 
 module.exports = { buildIndexPage };

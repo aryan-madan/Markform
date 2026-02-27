@@ -1,4 +1,4 @@
-![Markdown Banner](https://github.com/aryan-madan/Markform/blob/main/images/Markform%20|%20Devlog%202%20.png)
+![Markdown Banner](images/Markform%20|%20Banner.png)
 
 Turn any folder of Markdown files into a beautiful, searchable static site — in one command.
 ```bash
