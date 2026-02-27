@@ -7,7 +7,7 @@ const { createNewPage } = require('./new');
 program
     .name('markform')
     .description('Turn any folder of Markdown files into a beautiful, searchable static site')
-    .version('1.2.2')
+    .version('1.2.3')
     .argument('[input]', 'folder of Markdown files')
     .option('-o, --output <dir>', 'output directory', './output')
     .option('-w, --watch', 'watch for changes and rebuild')
