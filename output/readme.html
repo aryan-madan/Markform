@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hello</title>
+  <title>readme</title>
   <style>
     *,
     *::before,
@@ -380,8 +380,73 @@
     <ul id="search-results" style="display:none;"></ul>
   </nav>
   <main>
-    <h1>Hello World</h1>
-<p>This is my first note.</p>
+    <h1>markform 📝</h1>
+<p><img src="images/Markform%20%7C%20Banner.png" alt="Markdown Banner"></p>
+<p>Turn any folder of Markdown files into a beautiful, searchable static site — in one command.</p>
+<pre><code class="language-bash">markform ./my-notes -o ./output
+</code></pre>
+<p>I saw on reddit that people had folders of markdown files that needed to be sorted, and no good way to share them. Most static site generators are either too complex or too opinionated. So I built this :D</p>
+<hr>
+<h2>⛏ Installation</h2>
+<pre><code class="language-bash">npm install -g markform-cli
+</code></pre>
+<hr>
+<h2>(ˆᗜˆ ) Usage</h2>
+<p><strong>Build your site:</strong></p>
+<pre><code class="language-bash">markform ./my-notes -o ./output
+</code></pre>
+<p>If it doesn&#39;t work (mainly on Windows), use:</p>
+<pre><code class="language-bash">npx markform-cli ./my-notes -o ./output
+</code></pre>
+<p><strong>Watch mode</strong> — auto-rebuilds and live-reloads the browser on file changes:</p>
+<pre><code class="language-bash">markform ./my-notes -o ./output --watch
+</code></pre>
+<p><strong>Create a new page:</strong></p>
+<pre><code class="language-bash">markform --new my-page
+</code></pre>
+<p>This scaffolds a new Markdown file with frontmatter ready to fill in:</p>
+<pre><code class="language-markdown">---
+title: My Page
+date: 2026-02-27
+description: 
+---
+
+# My Page
+
+Write something here...
+</code></pre>
+<hr>
+<h2>(≖_≖ ) Options</h2>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-o, --output &lt;dir&gt;</code></td>
+<td><code>./output</code></td>
+<td>Where to write the site</td>
+</tr>
+<tr>
+<td><code>-w, --watch</code></td>
+<td>off</td>
+<td>Watch for changes and live reload</td>
+</tr>
+<tr>
+<td><code>-n, --new &lt;name&gt;</code></td>
+<td>—</td>
+<td>Scaffold a new Markdown file</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>↺ Contributing</h2>
+<p>PRs and issues are very welcome. If you add a theme, fix a bug, or build something cool with markform, I&#39;d love to hear about it.</p>
+<hr>
+<h2>License</h2>
+<p>GPL-3.0</p>
 
   </main>
 

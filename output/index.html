@@ -380,7 +380,7 @@
     
     <div class="index-header">
       <h1>markform</h1>
-      <p>3 pages</p>
+      <p>4 pages</p>
     </div>
     <div class="card-grid">
       <a href="about.html" class="card">
@@ -396,13 +396,18 @@
       <a href="post.html" class="card">
         <span class="card-folder">root</span>
         <span class="card-title">Post</span>
+      </a>
+
+      <a href="readme.html" class="card">
+        <span class="card-folder">root</span>
+        <span class="card-title">readme</span>
       </a></div>
   
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/fuse.js@7/dist/fuse.min.js"></script>
   <script>
-    const searchData = [{"title":"about","href":"about.html","content":"About This site was built with markform."},{"title":"hello","href":"hello.html","content":"Hello World This is my first note."},{"title":"Post","href":"post.html","content":"Post Write something here..."}];
+    const searchData = [{"title":"about","href":"about.html","content":"About This site was built with markform."},{"title":"hello","href":"hello.html","content":"Hello World This is my first note."},{"title":"Post","href":"post.html","content":"Post Write something here..."},{"title":"readme","href":"readme.html","content":"markform 📝 !Markdown Banner Turn any folder of Markdown files into a beautiful, searchable static site — in one command. I saw on reddit that people had folders of markdown files that needed to be sorted, and no good way to share them. Most static site generators are either too complex or too opinionated. So I built this :D --- ⛏ Installation --- (ˆᗜˆ ) Usage Build your site: If it doesn't work (mainly on Windows), use: Watch mode — auto-rebuilds and live-reloads the browser on file changes: Create a new page: This scaffolds a new Markdown file with frontmatter ready to fill in: --- (≖≖ ) Options | Flag | Default | Description | |------|---------|-------------| |  |  | Where to write the site | |  | off | Watch for changes and live reload | |  | — | Scaffold a new Markdown file | --- ↺ Contributing PRs and issues are very welcome. If you add a theme, fix a bug, or build something cool with markform, I'd love to hear about it. --- License GPL-3.0"}];
 
     if (document.body.dataset.page === 'index') {
       document.getElementById('sidebar').classList.add('hidden');
