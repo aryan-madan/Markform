@@ -389,10 +389,9 @@
 
   <script src="https://cdn.jsdelivr.net/npm/fuse.js@7/dist/fuse.min.js"></script>
   <script>
-    const searchData = {{ search_index }};
+    const searchData = [{"title":"about","href":"about.html","content":"About This site was built with markform."},{"title":"hello","href":"hello.html","content":"Hello World This is my first note."},{"title":"Post","href":"post.html","content":"Post Write something here..."}];
 
-    // Hide sidebar on index page
-    if (document.title === 'Home') {
+    if (document.body.dataset.page === 'index') {
       document.getElementById('sidebar').classList.add('hidden');
       document.body.classList.add('index-page');
     }

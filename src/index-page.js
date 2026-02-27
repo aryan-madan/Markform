@@ -1,10 +1,13 @@
 const path = require('path');
+const matter = require('gray-matter');
 
 function buildIndexPage(mdFiles, inputDir, template, searchIndexJson) {
   const cards = mdFiles.map((filePath) => {
     const relativePath = path.relative(inputDir, filePath);
     const href = relativePath.replace(/\.md$/, '.html');
-    const title = path.basename(filePath, '.md').replace(/-/g, ' ');
+    const raw = require('fs-extra').readFileSync(filePath, 'utf-8');
+    const { data: frontmatter } = matter(raw);
+    const title = frontmatter.title || path.basename(filePath, '.md').replace(/-/g, ' ');
     const folder = path.dirname(relativePath) === '.' ? 'root' : path.dirname(relativePath);
 
     return `
@@ -23,10 +26,10 @@ function buildIndexPage(mdFiles, inputDir, template, searchIndexJson) {
   `;
 
   return template
-    .replace('{{content}}', content)
-    .replace('{{nav}}', '')
-    .replace('{{title}}', 'Home')
-    .replace('{{search_index}}', searchIndexJson)
+    .replace('{{search_index}}', () => searchIndexJson)
+    .replace('{{content}}', () => content)
+    .replace('{{nav}}', () => '')
+    .replace('{{title}}', () => 'Home')
     .replace('<body>', '<body data-page="index">');
 }
 
