@@ -6,6 +6,7 @@ const { buildIndexPage } = require('./index-page');
 const chokidar = require('chokidar');
 const express = require('express');
 const { exec } = require('child_process');
+const matter = require('gray-matter');
 
 function openInBrowser(url) {
   const cmd = process.platform === 'win32'
@@ -72,15 +73,28 @@ async function compile(inputDir, outputDir, watch = false) {
   );
 
   for (const filePath of mdFiles) {
-    const content = fs.readFileSync(filePath, 'utf-8');
+    const raw = fs.readFileSync(filePath, 'utf-8');
+    const { content, data: frontmatter } = matter(raw);
     const htmlContent = marked(content);
     const relativePath = path.relative(inputDir, filePath);
     const outputPath = path.join(outputDir, relativePath.replace(/\.md$/, '.html'));
 
+    const title = frontmatter.title || path.basename(filePath, '.md').replace(/-/g, ' ');
+    const description = frontmatter.description || '';
+    const date = frontmatter.date || '';
+
+    let metaHtml = '';
+    if (date || description) {
+      metaHtml = `<div class="page-meta">
+        ${date ? `<span class="page-date">${date}</span>` : ''}
+        ${description ? `<p class="page-description">${description}</p>` : ''}
+      </div>`;
+    }
+
     let html = template
-      .replace('{{content}}', htmlContent)
+      .replace('{{content}}', metaHtml + htmlContent)
       .replace('{{nav}}', nav)
-      .replace('{{title}}', path.basename(filePath, '.md'))
+      .replace('{{title}}', title)
       .replace('{{search_index}}', searchIndexJson);
 
     if (watch) {
@@ -120,7 +134,8 @@ function getMdFiles(dir) {
 function buildSearchIndex(mdFiles, inputDir) {
   return mdFiles.map((filePath) => {
     const raw = fs.readFileSync(filePath, 'utf-8');
-    const content = raw
+    const { content, data: frontmatter } = matter(raw);
+    const cleaned = content
       .replace(/#{1,6}\s/g, '')
       .replace(/\*\*|__|\*|_/g, '')
       .replace(/`{1,3}[^`]*`{1,3}/g, '')
@@ -131,8 +146,8 @@ function buildSearchIndex(mdFiles, inputDir) {
 
     const relativePath = path.relative(inputDir, filePath);
     const href = relativePath.replace(/\.md$/, '.html');
-    const title = path.basename(filePath, '.md').replace(/-/g, ' ');
-    return { title, href, content };
+    const title = frontmatter.title || path.basename(filePath, '.md').replace(/-/g, ' ');
+    return { title, href, content: cleaned };
   });
 }
 

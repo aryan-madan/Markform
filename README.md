@@ -1,3 +1,5 @@
+# markform 📝
+
 ![Markdown Banner](images/Markform%20|%20Banner.png)
 
 Turn any folder of Markdown files into a beautiful, searchable static site — in one command.
@@ -23,14 +25,32 @@ npm install -g markform-cli
 markform ./my-notes -o ./output
 ```
 
-If it doesn't work (mainly on windows), use:
+If it doesn't work (mainly on Windows), use:
 ```bash
-npx markform-cli ./test -o ./output
+npx markform-cli ./my-notes -o ./output
 ```
 
 **Watch mode** — auto-rebuilds and live-reloads the browser on file changes:
 ```bash
 markform ./my-notes -o ./output --watch
+```
+
+**Create a new page:**
+```bash
+markform --new my-page
+```
+
+This scaffolds a new Markdown file with frontmatter ready to fill in:
+```markdown
+---
+title: My Page
+date: 2026-02-27
+description: 
+---
+
+# My Page
+
+Write something here...
 ```
 
 ---
@@ -41,7 +61,7 @@ markform ./my-notes -o ./output --watch
 |------|---------|-------------|
 | `-o, --output <dir>` | `./output` | Where to write the site |
 | `-w, --watch` | off | Watch for changes and live reload |
-| `--theme <name>` | `default` | Theme to use |
+| `-n, --new <name>` | — | Scaffold a new Markdown file |
 
 ---
 

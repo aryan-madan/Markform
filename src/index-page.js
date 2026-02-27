@@ -26,7 +26,8 @@ function buildIndexPage(mdFiles, inputDir, template, searchIndexJson) {
     .replace('{{content}}', content)
     .replace('{{nav}}', '')
     .replace('{{title}}', 'Home')
-    .replace('{{search_index}}', searchIndexJson);
+    .replace('{{search_index}}', searchIndexJson)
+    .replace('<body>', '<body data-page="index">');
 }
 
 module.exports = { buildIndexPage };

@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>about</title>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     :root {
       --bg: #0e0e0e;
@@ -43,7 +50,9 @@
       gap: 0.25rem;
     }
 
-    nav.hidden { display: none; }
+    nav.hidden {
+      display: none;
+    }
 
     .nav-logo {
       font-size: 0.65rem;
@@ -57,7 +66,9 @@
       display: block;
     }
 
-    .nav-logo:hover { color: var(--text); }
+    .nav-logo:hover {
+      color: var(--text);
+    }
 
     .nav-divider {
       height: 1px;
@@ -77,8 +88,13 @@
       margin-bottom: 0.5rem;
     }
 
-    #search:focus { border-color: #444; }
-    #search::placeholder { color: var(--muted); }
+    #search:focus {
+      border-color: #444;
+    }
+
+    #search::placeholder {
+      color: var(--muted);
+    }
 
     .nav-section-label {
       font-size: 0.6rem;
@@ -90,7 +106,10 @@
       margin: 0.75rem 0 0.35rem;
     }
 
-    #nav-list { list-style: none; }
+    #nav-list {
+      list-style: none;
+    }
+
     #nav-list li a {
       color: var(--muted-light);
       text-decoration: none;
@@ -106,8 +125,15 @@
       border-left-color: var(--muted);
     }
 
-    #search-results { list-style: none; }
-    #search-results li { padding: 0.6rem 0.5rem; border-bottom: 1px solid var(--border); }
+    #search-results {
+      list-style: none;
+    }
+
+    #search-results li {
+      padding: 0.6rem 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
     #search-results a {
       font-size: 0.82rem;
       font-weight: 600;
@@ -117,7 +143,11 @@
       display: block;
       margin-bottom: 0.15rem;
     }
-    #search-results a:hover { color: #fff; }
+
+    #search-results a:hover {
+      color: #fff;
+    }
+
     #search-results p {
       color: var(--muted-light);
       font-size: 0.72rem;
@@ -139,14 +169,39 @@
     }
 
     /* ── TYPOGRAPHY ── */
-    h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 0.75rem; line-height: 1.2; }
-    h2 { font-size: 1.2rem; font-weight: 600; margin: 2.25rem 0 0.5rem; }
-    h3 { font-size: 1rem; font-weight: 600; margin: 1.5rem 0 0.4rem; }
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
 
-    p { margin-bottom: 1rem; color: #aaa; }
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 2.25rem 0 0.5rem;
+    }
 
-    a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
-    a:hover { color: #fff; }
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.4rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: #aaa;
+    }
+
+    a {
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      color: #fff;
+    }
 
     code {
       font-family: 'SF Mono', 'Fira Code', monospace;
@@ -167,7 +222,13 @@
       line-height: 1.7;
     }
 
-    pre code { background: none; color: #ccc; padding: 0; border: none; font-size: inherit; }
+    pre code {
+      background: none;
+      color: #ccc;
+      padding: 0;
+      border: none;
+      font-size: inherit;
+    }
 
     blockquote {
       border-left: 2px solid var(--border);
@@ -177,16 +238,51 @@
       font-style: italic;
     }
 
-    hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
-    img { max-width: 100%; margin: 1rem 0; }
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2rem 0;
+    }
 
-    table { width: 100%; border-collapse: collapse; margin-bottom: 1.25rem; font-size: 0.875rem; }
-    th, td { padding: 0.6rem 0.875rem; border: 1px solid var(--border); text-align: left; }
-    th { background: var(--surface); font-weight: 600; color: var(--text); }
-    td { color: #aaa; }
+    img {
+      max-width: 100%;
+      margin: 1rem 0;
+    }
 
-    ul, ol { padding-left: 1.5rem; margin-bottom: 1rem; color: #aaa; }
-    li { margin-bottom: 0.25rem; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.25rem;
+      font-size: 0.875rem;
+    }
+
+    th,
+    td {
+      padding: 0.6rem 0.875rem;
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+
+    th {
+      background: var(--surface);
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    td {
+      color: #aaa;
+    }
+
+    ul,
+    ol {
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+      color: #aaa;
+    }
+
+    li {
+      margin-bottom: 0.25rem;
+    }
 
     /* ── INDEX PAGE ── */
     .index-header {
@@ -223,7 +319,9 @@
       transition: background 0.1s;
     }
 
-    .card:hover { background: var(--surface); }
+    .card:hover {
+      background: var(--surface);
+    }
 
     .card-folder {
       font-size: 0.6rem;
@@ -241,9 +339,34 @@
     }
 
     /* ── SEARCH HIGHLIGHT ── */
-    mark { background: #2a2a2a; color: #fff; padding: 0 2px; }
+    mark {
+      background: #2a2a2a;
+      color: #fff;
+      padding: 0 2px;
+    }
+
+    .page-meta {
+      margin-bottom: 2rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-date {
+      font-size: 0.75rem;
+      color: var(--muted-light);
+      letter-spacing: 0.05em;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .page-description {
+      color: var(--muted-light) !important;
+      font-size: 0.9rem;
+      margin: 0 !important;
+    }
   </style>
 </head>
+
 <body>
   <nav id="sidebar">
     <a class="nav-logo" href="index.html">markform</a>
@@ -251,7 +374,8 @@
     <input id="search" type="text" placeholder="Search..." />
     <span class="nav-section-label">Pages</span>
     <ul id="nav-list"><ul><li><a href="about.html">about</a></li>
-<li><a href="hello.html">hello</a></li></ul></ul>
+<li><a href="hello.html">hello</a></li>
+<li><a href="post.html">post</a></li></ul></ul>
     <ul id="search-results" style="display:none;"></ul>
   </nav>
   <main>
@@ -262,7 +386,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/fuse.js@7/dist/fuse.min.js"></script>
   <script>
-    const searchData = [{"title":"about","href":"about.html","content":"About This site was built with markform."},{"title":"hello","href":"hello.html","content":"Hello World This is my first note."}];
+    const searchData = {{ search_index }};
 
     // Hide sidebar on index page
     if (document.title === 'Home') {
@@ -328,4 +452,5 @@
     }
   </script>
 </body>
+
 </html>

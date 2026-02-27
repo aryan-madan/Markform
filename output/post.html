@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{title}}</title>
+  <title>Post</title>
   <style>
     *,
     *::before,
@@ -373,18 +373,26 @@
     <div class="nav-divider"></div>
     <input id="search" type="text" placeholder="Search..." />
     <span class="nav-section-label">Pages</span>
-    <ul id="nav-list">{{nav}}</ul>
+    <ul id="nav-list"><ul><li><a href="about.html">about</a></li>
+<li><a href="hello.html">hello</a></li>
+<li><a href="post.html">post</a></li></ul></ul>
     <ul id="search-results" style="display:none;"></ul>
   </nav>
   <main>
-    {{content}}
+    <div class="page-meta">
+        <span class="page-date">Fri Feb 27 2026 05:30:00 GMT+0530 (India Standard Time)</span>
+        
+      </div><h1>Post</h1>
+<p>Write something here...</p>
+
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/fuse.js@7/dist/fuse.min.js"></script>
   <script>
     const searchData = {{ search_index }};
 
-    if (document.body.dataset.page === 'index') {
+    // Hide sidebar on index page
+    if (document.title === 'Home') {
       document.getElementById('sidebar').classList.add('hidden');
       document.body.classList.add('index-page');
     }
